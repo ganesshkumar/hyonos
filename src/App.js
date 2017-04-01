@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import TimePicker from 'react-times';
 import 'react-times/css/material/default.css';
 
-import logo from './logo.svg'
 import './App.css'
 
 class App extends Component {
@@ -90,10 +89,6 @@ class App extends Component {
 
     return (
       <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
-        </div>
         <div className='button' onClick={this.clicked}>Click</div>
         <div className='rem1'>{times[0]}</div>
         <div className='rem2'>{times[1]}</div>
