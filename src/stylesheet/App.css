@@ -1,0 +1,79 @@
+.App {
+}
+
+/** Sleep Now **/
+
+.sleep-now {
+  margin: 10px;
+  padding: 10px;
+}
+
+.question {
+    text-align: center;
+    margin: 10px auto;
+}
+
+.sleep-now-button {
+  cursor: pointer;
+  width: 100px;
+  margin: 0 5px;
+  padding: 5px;
+  background-color: #FFB74D;
+  border-radius: 2px;
+}
+
+.sleep-now-button:hover {
+  background-color: #FB8C00;
+}
+
+/** Time options **/
+.times {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  grid-gap: 4px;
+  grid-template-columns: repeat(3, minmax(60px, auto));
+  grid-template-rows: repeat(2, minmax(20px, auto));
+  grid-auto-flow: row;
+}
+
+.time {
+  text-align: center;
+  font-size: 1.15em;
+  font-weight: 100;
+  padding: 5px;
+}
+
+.rem1 {
+  grid-row: 1;
+  grid-column: 1;
+  border: 0.5px #E64A19 dotted;
+  color: #E64A19;
+}
+
+.rem2 {
+  border: 0.5px #F57C00 dotted;
+  color: #F57C00;
+}
+
+.rem3 {
+  border: 0.5px #FBC02D dotted;
+  color: #FBC02D;
+}
+
+.rem4 {
+  border: 0.5px #388E3C dotted;
+  color: #388E3C;
+}
+
+.rem5 {
+  border: 0.5px #1976D2 dotted;
+  color: #1976D2;
+}
+
+.rem6 {
+  grid-row: 2;
+  grid-column: 3;
+  border: 0.5px #512DA8 dotted;
+  color: #512DA8;
+}

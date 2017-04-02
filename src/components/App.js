@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import TimePicker from 'react-times';
 import 'react-times/css/material/default.css';
 
-import './App.css'
+import '../stylesheet/App.css'
 
 class App extends Component {
 
@@ -75,27 +75,39 @@ class App extends Component {
   }
 
   render() {
-    const fmtOptions = {hour: '2-digit', minute: '2-digit'}
-    const locale = navigator.language
+    const fmtOptions = {hour: '2-digit', hour12: true, minute: '2-digit'}
 
     const times = this.state.timeSet
-        .map(time => new Date(time).toLocaleString(locale, fmtOptions))
+        .map(time => new Date(time).toLocaleString('en-GB', fmtOptions))
     const sleepTimes = this.state.sleepTimes
-        .map(time => new Date(time).toLocaleString(locale, fmtOptions))
+        .map(time => new Date(time).toLocaleString('en-GB', fmtOptions))
 
     var timer = new Date().setHours(this.state.hours)
     timer = new Date(timer).setMinutes(this.state.minutes)
-    timer = new Date(timer).toLocaleString(locale, fmtOptions)
+    timer = new Date(timer).toLocaleString('en-US', fmtOptions)
 
     return (
-      <div className="App">
-        <div className='button' onClick={this.clicked}>Click</div>
-        <div className='rem1'>{times[0]}</div>
-        <div className='rem2'>{times[1]}</div>
-        <div className='rem3'>{times[2]}</div>
-        <div className='rem4'>{times[3]}</div>
-        <div className='rem5'>{times[4]}</div>
-        <div className='rem6'>{times[5]}</div>
+      <div className='App'>
+
+        <div className='sleep-now'>
+          <div className='question'>
+            When can I get up if I
+            <span className='sleep-now-button' onClick={this.clicked}>
+              sleep now?
+            </span>
+          </div>
+
+          { this.state.timeSet.length > 0 &&
+            <div className='times'>
+              <div className='time rem1'>{times[0]}</div>
+              <div className='time rem2'>{times[1]}</div>
+              <div className='time rem3'>{times[2]}</div>
+              <div className='time rem4'>{times[3]}</div>
+              <div className='time rem5'>{times[4]}</div>
+              <div className='time rem6'>{times[5]}</div>
+            </div>
+          }
+        </div>
 
         <TimePicker
           focused={this.state.dontClose}
@@ -112,8 +124,6 @@ class App extends Component {
         <div className='rem6'>{sleepTimes[5] ? sleepTimes[5] : ''}</div>
 
       </div>
-
-
     );
   }
 }
