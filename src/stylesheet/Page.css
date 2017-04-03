@@ -1,7 +1,7 @@
 .container {
   height: 100%;
   display: grid;
-  grid-template-columns: [start] auto 80% auto [end];
+  grid-template-columns: [start] 10% 80% 10% [end];
   grid-template-rows: 50px auto 20px;
 }
 
@@ -16,14 +16,13 @@
 }
 
 .title {
-  font-family: Syncopate;
   font-weight: bolder;
   font-size: 1.5em;
   color: white;
 }
 
 .application {
-  grid-column: 2;
+  grid-column: start/ end;
   grid-row: 2;
 }
 

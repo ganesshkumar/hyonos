@@ -4,13 +4,26 @@
 /** Sleep Now **/
 
 .sleep-now {
-  margin: 10px;
-  padding: 10px;
+  margin: 10px 0;
+  padding: 10px 0;
 }
 
 .question {
-    text-align: center;
-    margin: 10px auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin: 10px auto;
+}
+
+.line {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin: 2px auto;
 }
 
 .sleep-now-button {
@@ -18,13 +31,76 @@
   width: 100px;
   margin: 0 5px;
   padding: 5px;
-  background-color: #FFB74D;
   border-radius: 2px;
+  background-color: #FFB74D;
+  transition: all 400ms cubic-bezier(0.165, 0.84, 0.44, 1);
+  box-shadow: 0 8px 8px 0 rgba(0, 0, 0, 0.12), 0 0 8px 0 rgba(0, 0, 0, 0.08);
 }
 
 .sleep-now-button:hover {
-  background-color: #FB8C00;
+  background-color: #FF9800;
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.12), 0 0 4px 0 rgba(0, 0, 0, 0.08);
+  transition: all 400ms cubic-bezier(0.165, 0.84, 0.44, 1);
 }
+
+.sleep-now-button:active {
+  background-color: #F57C00;
+  box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.12), 0 0 0 0 rgba(0, 0, 0, 0.08);
+  transition: all 400ms cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+/** Get up at **/
+.getup-at {
+  margin: 10px 0;
+  padding: 10px 0;
+}
+
+/** Following are overrider for third party timepicker **/
+.time_picker_container {
+  margin: 0 5px;
+}
+
+.time_picker_preview {
+  background-color: #FFB74D;
+  width: 100px;
+  height: auto;
+  padding: 5px;
+  transition: all 400ms cubic-bezier(0.165, 0.84, 0.44, 1);
+  box-shadow: 0 8px 8px 0 rgba(0, 0, 0, 0.12), 0 0 8px 0 rgba(0, 0, 0, 0.08);
+}
+
+.time_picker_preview:hover {
+  background-color: #FF9800;
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.12), 0 0 4px 0 rgba(0, 0, 0, 0.08);
+  transition: all 400ms cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.time_picker_preview:active {
+  background-color: #F57C00;
+  box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.12), 0 0 0 0 rgba(0, 0, 0, 0.08);
+  transition: all 400ms cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.preview_container {
+  padding: 0px;
+  height: auto;
+  line-height: inherit;
+  position: static;
+  transform: none;
+}
+
+.preview_container > svg {
+  display: none;
+}
+
+.outside_container {
+  position: relative;
+  width: 100%;
+  left: -125%;
+  top: 10px;
+}
+
+/** End of third party time picker **/
 
 /** Time options **/
 .times {

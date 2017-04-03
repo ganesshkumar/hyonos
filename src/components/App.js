@@ -40,8 +40,14 @@ class App extends Component {
   }
 
   computeSleepTime() {
+    const currentTime = new Date()
     var wakeTime = new Date().setHours(this.state.hours)
     wakeTime = new Date(wakeTime).setMinutes(this.state.minutes)
+
+
+    if (wakeTime < currentTime.getTime()) {
+      wakeTime = new Date(wakeTime + 1 * 24 * 60 * 60 * 1000)
+    }
 
     const sleepTimes = [
       //wakeTime
@@ -91,10 +97,13 @@ class App extends Component {
 
         <div className='sleep-now'>
           <div className='question'>
-            When can I get up if I
-            <span className='sleep-now-button' onClick={this.clicked}>
-              sleep now?
-            </span>
+            <div className='line'>
+              <div> When can I get up if I </div>
+              <div className='sleep-now-button' onClick={this.clicked}>
+                sleep now?
+              </div>
+          </div>
+
           </div>
 
           { this.state.timeSet.length > 0 &&
@@ -109,19 +118,37 @@ class App extends Component {
           }
         </div>
 
-        <TimePicker
-          focused={this.state.dontClose}
-          time={timer}
-          onHourChange={this.onHourChange.bind(this)}
-          onMinuteChange={this.onMinuteChange.bind(this)}
-        />
+        <div className='getup-at'>
+          <div className='question'>
+            <div className='line'>
+              <div>
+                To get up at
+              </div>
 
-        <div className='rem1'>{sleepTimes[0] ? sleepTimes[0] : ''}</div>
-        <div className='rem2'>{sleepTimes[1] ? sleepTimes[1] : ''}</div>
-        <div className='rem3'>{sleepTimes[2] ? sleepTimes[2] : ''}</div>
-        <div className='rem4'>{sleepTimes[3] ? sleepTimes[3] : ''}</div>
-        <div className='rem5'>{sleepTimes[4] ? sleepTimes[4] : ''}</div>
-        <div className='rem6'>{sleepTimes[5] ? sleepTimes[5] : ''}</div>
+              <TimePicker
+                focused={this.state.dontClose}
+                time={timer}
+                onHourChange={this.onHourChange.bind(this)}
+                onMinuteChange={this.onMinuteChange.bind(this)}
+              />
+            </div>
+
+            <div className='line'>
+              when can I go to sleep?
+            </div>
+          </div>
+
+          {sleepTimes.length > 0 &&
+            <div className='times'>
+              {sleepTimes[0] && <div className='time rem1'>{sleepTimes[0]}</div>}
+              {sleepTimes[1] && <div className='time rem2'>{sleepTimes[1]}</div>}
+              {sleepTimes[2] && <div className='time rem3'>{sleepTimes[2]}</div>}
+              {sleepTimes[3] && <div className='time rem4'>{sleepTimes[3]}</div>}
+              {sleepTimes[4] && <div className='time rem5'>{sleepTimes[4]}</div>}
+              {sleepTimes[5] && <div className='time rem6'>{sleepTimes[5]}</div>}
+            </div>
+          }
+        </div>
 
       </div>
     );
